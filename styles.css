@@ -241,6 +241,8 @@ img {
     transform: rotate(180deg);
 }
 
+
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -277,6 +279,10 @@ img {
     border-radius: 50%;
     filter: blur(60px);
 }
+
+/* Animated floating blobs */
+
+
 
 .hero-content {
     position: relative;
@@ -591,40 +597,7 @@ img {
     color: #94a3b8;
 }
 
-/* Animations using Classes */
-.animate-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
-}
 
-.animate-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.animate-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 {
-    animation-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-.delay-2 {
-    animation-delay: 0.4s;
-    transition-delay: 0.4s;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -641,7 +614,6 @@ img {
 
     .nav.active {
         display: block;
-        animation: slideDown 0.3s ease forwards;
     }
 
     .nav-list {
