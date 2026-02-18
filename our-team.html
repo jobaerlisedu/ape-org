@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - APE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .team-info {
+            padding: 1.2rem 1rem;
+        }
+
+        .team-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+        }
+
+        .team-info p {
+            font-size: 0.82rem;
+            color: #6b7280;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+
+        .team-info a {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-decoration: none;
+            border: 1.5px solid var(--secondary-color);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .team-info a:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-fire-flame-curved logo-icon"></i>
+                <span>APE</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#about">About <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="background.html">Background</a></li>
+                            <li><a href="our-team.html" class="active">Our Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.html#research">Research <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Ongoing Research</a></li>
+                            <li><a href="#">Completed Research</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.html#resources">Resources <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">APE Publications</a></li>
+                            <li><a href="#">Contributed Publications</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.html#events">Event <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Event Completed</a></li>
+                            <li><a href="#">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.html#governance">Governance <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Organogram</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="index.html#contact" class="btn btn-primary"
+                            style="padding: 0.5rem 1.5rem; color: #fff;">Contact Us</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-hero">
+            <h1>Meet Our Team</h1>
+            <p>The dedicated people behind Association for Political Empowerment</p>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="team-grid">
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Md Shamsuddoha</h3>
+                            <p>Chief Executive</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-1">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sumaiya Binte Anwar</h3>
+                            <p>Program Manager - Research &amp; Advocacy</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-2">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sheikh Nur Ataya Rabbi</h3>
+                            <p>Assistant Manager - Research and Advocacy</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Shohel Mahmud Nobel</h3>
+                            <p>Deputy Manager – Accounts and Administration</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-1">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Mir Mehoraf Sharif</h3>
+                            <p>Assistant Manager - ICT &amp; Communication</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-2">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sohel Rana</h3>
+                            <p>Assistant Manager - HR and Organizational Affairs</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Tanje Un Jenat</h3>
+                            <p>Senior Officer - Research and Advocacy</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-1">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Al Imran</h3>
+                            <p>Senior Officer - Research and Campaign</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-2">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Ahmed Samira</h3>
+                            <p>Senior Research Officer - Environment and Public Health</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Md. Mir Ashaduzzaman</h3>
+                            <p>Senior Accounts &amp; Audit Officer</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-1">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Shanjia Shams</h3>
+                            <p>Research Officer - Gender &amp; Human Rights</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-2">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Shohanur Rahman</h3>
+                            <p>Research Officer - Biodiversity and Nature Based Solution</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>H. M. Rayhanul Islam</h3>
+                            <p>Research Officer</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-1">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Rai Dhar</h3>
+                            <p>Research Officer</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll delay-2">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Md. Shahadat Hossain</h3>
+                            <p>Research Officer</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                    <div class="team-card animate-scroll">
+                        <div class="team-avatar">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Md. Mashrup Hasan</h3>
+                            <p>Research Intern</p>
+                            <a href="#">View Biography</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo">
+                    <i class="fa-solid fa-fire-flame-curved"></i> APE
+                </a>
+                <p>House 1219, Flat A-2, Road 10, Avenue-10, Mirpur (12) DOHS, Dhaka-1216, Bangladesh.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-clock"></i> Sat - THU 9:00 AM -
+                    5:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#focus-areas">Focus Areas</a></li>
+                    <li><a href="index.html#latest">Latest</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/cprdbd" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/cprdbd" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://twitter.com/cprdbd" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 APE | Association for Political Empowerment.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
