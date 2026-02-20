@@ -755,3 +755,114 @@ img {
         transform: translateY(0);
     }
 }
+
+/* Article Page Styles */
+.article-page {
+    padding-top: 120px;
+    background-color: var(--white);
+}
+
+.article-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.article-header h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.article-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.article-meta i {
+    color: var(--secondary-color);
+}
+
+.article-banner {
+    width: 100%;
+    height: 450px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 1.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.article-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.article-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.article-content h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 2.5rem 0 1.5rem;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 2rem 0 1rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content blockquote {
+    border-left: 5px solid var(--secondary-color);
+    padding: 1.5rem 2rem;
+    background-color: #f1f5f9;
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 2.5rem 0;
+    border-radius: 0 1rem 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .article-header h1 {
+        font-size: 2.2rem;
+    }
+    .article-banner {
+        height: 300px;
+    }
+    .article-content {
+        font-size: 1.05rem;
+    }
+}
