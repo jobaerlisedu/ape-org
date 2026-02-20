@@ -241,6 +241,42 @@ img {
     transform: rotate(180deg);
 }
 
+/* Nested Dropdown */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -5px;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-submenu:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-submenu>a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-submenu>a i {
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-submenu:hover>a i {
+    transform: rotate(-90deg) translateX(-3px);
+}
+
 
 
 /* Hero Section */
