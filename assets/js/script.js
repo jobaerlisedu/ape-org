@@ -97,9 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let particles = [];
 
         // Configuration
-        const particleCount = 80; // Number of particles
-        const connectionDistance = 150; // Max distance to draw line
-        const moveSpeed = 0.5; // Speed of movement
+        const particleCount = 60; // Slightly fewer for icons to avoid clutter
+        const connectionDistance = 150;
+        const moveSpeed = 0.4;
+        const icons = ['\uf0c0', '\uf19c', '\uf1bb', '\uf57d']; // users, building-columns, leaf, globe
 
         function resize() {
             width = canvas.width = canvas.parentElement.offsetWidth;
@@ -112,23 +113,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.y = Math.random() * height;
                 this.vx = (Math.random() - 0.5) * moveSpeed;
                 this.vy = (Math.random() - 0.5) * moveSpeed;
-                this.size = Math.random() * 2 + 1;
+                this.icon = icons[Math.floor(Math.random() * icons.length)];
+                this.fontSize = Math.random() * 10 + 12; // 12px to 22px
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Bounce off edges
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
             }
 
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-                ctx.fill();
+                ctx.font = `900 ${this.fontSize}px "Font Awesome 6 Free"`;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.icon, this.x, this.y);
             }
         }
 
@@ -143,12 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
         function animate() {
             ctx.clearRect(0, 0, width, height);
 
-            // Update and draw particles
             particles.forEach((p, index) => {
                 p.update();
                 p.draw();
 
-                // Draw connections
                 for (let j = index + 1; j < particles.length; j++) {
                     const p2 = particles[j];
                     const dx = p.x - p2.x;
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / connectionDistance) * 0.5})`;
+                        ctx.lineWidth = 1.0;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
                         ctx.stroke();
@@ -174,7 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
             initParticles();
         });
 
-        initParticles();
-        animate();
+        document.fonts.ready.then(() => {
+            initParticles();
+            animate();
+        });
     }
 });
