@@ -159,9 +159,14 @@ img {
     gap: 0.5rem;
 }
 
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
 .logo-icon {
-    color: var(--secondary-color);
-    font-size: 1.8rem;
+    display: none;
 }
 
 .nav-list {
@@ -423,19 +428,23 @@ img {
     padding: 4rem 0;
 }
 
+.stats .container {
+    max-width: 1400px;
+}
+
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .stat-item {
     background: rgba(255, 255, 255, 0.05);
     /* Subtle glass effect */
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     border-radius: 1rem;
     transition: transform 0.3s ease, background 0.3s ease;
     display: flex;
@@ -443,6 +452,8 @@ img {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    height: 100%;
 }
 
 .stat-item:hover {
@@ -472,14 +483,17 @@ img {
 }
 
 .stat-item h3 {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     margin: 0;
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-align: center;
     white-space: nowrap;
-    /* Forces text to stay on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -601,6 +615,13 @@ img {
 .footer-logo {
     color: var(--white);
     margin-bottom: 1rem;
+}
+
+.footer-logo .logo-img {
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
 }
 
 .footer-col h4 {
@@ -859,9 +880,11 @@ img {
     .article-header h1 {
         font-size: 2.2rem;
     }
+
     .article-banner {
         height: 300px;
     }
+
     .article-content {
         font-size: 1.05rem;
     }
