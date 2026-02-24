@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const connectionDistance = 150;
         const moveSpeed = 0.4;
         const icons = ['\uf0c0', '\uf19c', '\uf1bb', '\uf57d']; // users, building-columns, leaf, globe
+        const textLabels = ['Governance', 'Youth', 'Marginalised', 'Progressive', 'Global'];
 
         function resize() {
             width = canvas.width = canvas.parentElement.offsetWidth;
@@ -108,13 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         class Particle {
-            constructor() {
+            constructor(labelText = null) {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
                 this.vx = (Math.random() - 0.5) * moveSpeed;
                 this.vy = (Math.random() - 0.5) * moveSpeed;
-                this.icon = icons[Math.floor(Math.random() * icons.length)];
-                this.fontSize = Math.random() * 10 + 12; // 12px to 22px
+
+                if (labelText) {
+                    this.text = labelText;
+                    this.isText = true;
+                    this.fontSize = 14;
+                } else {
+                    this.icon = icons[Math.floor(Math.random() * icons.length)];
+                    this.isText = false;
+                    this.fontSize = Math.random() * 10 + 12; // 12px to 22px
+                }
             }
 
             update() {
@@ -126,18 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             draw() {
-                ctx.font = `900 ${this.fontSize}px "Font Awesome 6 Free"`;
+                if (this.isText) {
+                    ctx.font = `600 ${this.fontSize}px "Inter", sans-serif`;
+                } else {
+                    ctx.font = `900 ${this.fontSize}px "Font Awesome 6 Free"`;
+                }
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(this.icon, this.x, this.y);
+                ctx.fillText(this.isText ? this.text : this.icon, this.x, this.y);
             }
         }
 
         function initParticles() {
             particles = [];
             resize();
-            for (let i = 0; i < particleCount; i++) {
+
+            // Add particles with text labels (3 instances of each)
+            const repeats = 3;
+            for (let i = 0; i < repeats; i++) {
+                textLabels.forEach(label => {
+                    particles.push(new Particle(label));
+                });
+            }
+
+            // Add remaining particles with icons
+            const textParticlesCount = textLabels.length * repeats;
+            for (let i = textParticlesCount; i < particleCount; i++) {
                 particles.push(new Particle());
             }
         }

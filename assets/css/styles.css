@@ -92,6 +92,7 @@ img {
     font-weight: 600;
     cursor: pointer;
     border: 2px solid transparent;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -361,6 +362,7 @@ img {
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: nowrap;
 }
 
 .highlight {
