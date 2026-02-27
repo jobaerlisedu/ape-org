@@ -5,12 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Gallery - APE</title>
+    <meta name="description" content="Explore photos from APE's events, community workshops, and manifesto talks.">
+    <meta property="og:title" content="Event Gallery - APE">
+    <meta property="og:image" content="assets/img/APE_LOGO.svg">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/img/APE_LOGO.svg">
+
+    <link rel="canonical" href="https://apeorg.org/gallery.html">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://apeorg.org/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Gallery",
+        "item": "https://apeorg.org/gallery.html"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -44,15 +66,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="index.html#events">Event <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="event-completed.html">Event Completed</a></li>
-                            <li><a href="upcoming-events.html">Upcoming Events</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="index.html#governance">Governance <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="policy.html">Governance <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="organogram.html">Organogram</a></li>
                             <li class="dropdown-submenu">
@@ -67,10 +81,10 @@
                             <li><a href="audit-report.html">Audit Reports</a></li>
                         </ul>
                     </li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
                     <li><a href="career.html">Career</a></li>
                     <li><a href="contact.html" class="btn btn-primary"
-                            style="padding: 0.5rem 1.5rem; color: #fff;">Contact
-                            Us</a></li>
+                            style="padding: 0.5rem 1.5rem; color: #fff;">Contact Us</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
@@ -82,32 +96,30 @@
     <main>
         <section class="section" style="padding-top: 120px;">
             <div class="container">
-                <div class="section-title">
-                    <h2>Event Gallery</h2>
-                    <p>Capturing moments from our community actions and events.</p>
+
+                <!-- ── Album List View ── -->
+                <div id="album-list-view">
+                    <div class="section-title">
+                        <h2>Event Gallery</h2>
+                        <p>Browse photos from our community actions and events.</p>
+                    </div>
+                    <div class="album-grid" id="album-grid"></div>
                 </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC07961.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08012.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08025.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08034.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08035.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08083.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08230.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/DSC08443.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/IFT08886.JPG" alt="Event image"
-                            loading="lazy"></div>
-                    <div class="gallery-item"><img src="assets/img/about-slide/IFT09156.JPG" alt="Event image"
-                            loading="lazy"></div>
+
+                <!-- ── Album Detail View ── -->
+                <div id="album-detail-view" style="display:none;">
+                    <div class="album-detail-header">
+                        <button class="btn-back" id="btn-back-to-albums" aria-label="Return to album list">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Albums
+                        </button>
+                        <div>
+                            <h2 id="album-detail-title"></h2>
+                            <p id="album-detail-meta" class="album-detail-meta"></p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid" id="album-photo-grid"></div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -131,10 +143,12 @@
             <div class="footer-col">
                 <h4>Connect</h4>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/apeorg" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/apeorg" target="_blank"><i
-                            class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://twitter.com/apeorg" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/apeorg" target="_blank" aria-label="Visit our Facebook page"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/apeorg" target="_blank"
+                        aria-label="Visit our LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://twitter.com/apeorg" target="_blank" aria-label="Visit our Twitter profile"><i
+                            class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -145,7 +159,8 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-close" aria-label="Close Lightbox" role="button" tabindex="0"><i
+                class="fa-solid fa-xmark"></i></span>
         <button class="lightbox-prev" aria-label="Previous Image"><i class="fas fa-chevron-left"></i></button>
         <button class="lightbox-next" aria-label="Next Image"><i class="fas fa-chevron-right"></i></button>
         <div class="lightbox-content">
@@ -154,6 +169,224 @@
     </div>
 
     <script src="assets/js/script.js"></script>
+
+    <script>
+        // ── Event Albums Data ──────────────────────────────────────────────
+        const albums = [
+            {
+                id: 'manifesto-talk-03',
+                title: 'Manifesto Talk — Session 03',
+                date: '2024',
+                photos: [
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07961.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07983.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07987.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07988.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07996.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07997.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC07998.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08000.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08002.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08003.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08004.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08006.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08011.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08015.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08024.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08025.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08026.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08027.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08028.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08031.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08035.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08036.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08037.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08038.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08039.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08041.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08042.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08045.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08059.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08078.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08129.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08183.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08192.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08196.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08229.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08260.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08345.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08351.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08353.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08360.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08368.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08426.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08455.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08456.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08463.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08465.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-03/DSC08468.JPG'
+                ]
+            },
+            {
+                id: 'manifesto-talk-04',
+                title: 'Manifesto Talk — Session 04',
+                date: '2024',
+                photos: [
+                    'assets/img/event-photo-gallery/manifesto-talk-04/DSC03902.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/DSC03904.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/DSC03913.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08502.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08516.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08522.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08527.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08533.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08534.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08544.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08560.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08562.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08569.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08570.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08572.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08573.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08577.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08580.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08583.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08589.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08590.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08601.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08607.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08626.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08636.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08646.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08668.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08689.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08695.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08702.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08706.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08715.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08724.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08745.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08767.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08820.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08838.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08931.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08947.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08950.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08952.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08956.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08970.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08973.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08974.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT08998.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09026.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09039.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09044.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09052.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09101.JPG',
+                    'assets/img/event-photo-gallery/manifesto-talk-04/IFT09119.JPG'
+                ]
+            }
+        ];
+
+        // ─── Build Album Cards ────────────────────────────────────────────
+        const albumGrid = document.getElementById('album-grid');
+        albums.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.setAttribute('data-id', album.id);
+            card.innerHTML = `
+                <div class="album-cover">
+                    <img src="${album.photos[0]}" alt="${album.title}" loading="lazy">
+                    <div class="album-cover-overlay">
+                        <i class="fa-solid fa-images"></i>
+                        <span>${album.photos.length} Photos</span>
+                    </div>
+                </div>
+                <div class="album-info">
+                    <h3>${album.title}</h3>
+                    <p><i class="fa-regular fa-calendar"></i> ${album.date}</p>
+                </div>`;
+            card.addEventListener('click', () => openAlbum(album));
+            albumGrid.appendChild(card);
+        });
+
+        // ─── Album Detail Logic ───────────────────────────────────────────
+        const listView = document.getElementById('album-list-view');
+        const detailView = document.getElementById('album-detail-view');
+        const detailTitle = document.getElementById('album-detail-title');
+        const detailMeta = document.getElementById('album-detail-meta');
+        const photoGrid = document.getElementById('album-photo-grid');
+        const btnBack = document.getElementById('btn-back-to-albums');
+
+        let currentAlbumImages = [];
+        let lightboxCurrentIndex = 0;
+
+        function openAlbum(album) {
+            currentAlbumImages = album.photos;
+            detailTitle.textContent = album.title;
+            detailMeta.innerHTML = `<i class="fa-regular fa-calendar"></i> ${album.date}&nbsp;&nbsp;·&nbsp;&nbsp;<i class="fa-solid fa-images"></i> ${album.photos.length} Photos`;
+
+            photoGrid.innerHTML = '';
+            album.photos.forEach((src, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${src}" alt="Event photo ${index + 1}" loading="lazy">`;
+                item.addEventListener('click', () => openLightbox(index));
+                photoGrid.appendChild(item);
+            });
+
+            listView.style.display = 'none';
+            detailView.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        btnBack.addEventListener('click', () => {
+            detailView.style.display = 'none';
+            listView.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ─── Lightbox (album-scoped) ──────────────────────────────────────
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+
+        function openLightbox(index) {
+            lightboxCurrentIndex = index;
+            lightboxImg.src = currentAlbumImages[lightboxCurrentIndex];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function navigateLightbox(dir) {
+            lightboxCurrentIndex = (lightboxCurrentIndex + dir + currentAlbumImages.length) % currentAlbumImages.length;
+            lightboxImg.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImg.src = currentAlbumImages[lightboxCurrentIndex];
+                lightboxImg.style.opacity = '1';
+            }, 180);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+        lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+    </script>
 </body>
 
 </html>
