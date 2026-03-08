@@ -56,16 +56,27 @@
             opacity: 0.85;
         }
 
-        /* ── Grid ──────────────────────────────────────── */
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ── Grid/Flex ─────────────────────────────────── */
         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
         }
 
         /* ── Card ──────────────────────────────────────── */
         .team-card {
+            flex: 0 1 310px;
+            width: 310px;
+            display: flex;
+            flex-direction: column;
             background: var(--white);
             border-radius: 1rem;
             overflow: hidden;
@@ -82,13 +93,37 @@
         /* ── Avatar ────────────────────────────────────── */
         .team-avatar {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            height: 220px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle decorative circles for background */
+        .team-avatar::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 50%;
+            top: -20px;
+            right: -20px;
+        }
+
+        .team-avatar img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+            z-index: 1;
         }
 
         .team-avatar i {
@@ -98,29 +133,47 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         /* ── Info ──────────────────────────────────────── */
         .team-info {
-            padding: 1.2rem 1rem;
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.2rem;
+            /* Tight gap between all elements */
         }
 
         .team-info h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0;
+            min-height: 2.8rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
         }
 
         .team-info p {
-            font-size: 0.82rem;
+            font-size: 0.9rem;
             color: #6b7280;
-            line-height: 1.4;
-            margin-bottom: 0.8rem;
+            line-height: 1.3;
+            margin-bottom: 0;
+            min-height: 2.4rem;
+            /* Slightly reduced */
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
         }
 
         .team-info a {
+            margin-top: auto;
             display: inline-block;
             font-size: 0.8rem;
             font-weight: 600;
@@ -204,181 +257,71 @@
         </div>
 
         <section class="section">
-            <div class="container">
+            <div class="team-container">
                 <div class="team-grid">
 
                     <div class="team-card animate-scroll">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user-tie"></i>
+                            <img src="assets/img/team-member/habibur.JPG" alt="Md. Habibur Rahaman">
                         </div>
                         <div class="team-info">
-                            <h3>Md Shamsuddoha</h3>
-                            <p>Chief Executive</p>
+                            <h3>Md. Habibur Rahaman</h3>
+                            <p>Chair and Executive Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
 
                     <div class="team-card animate-scroll delay-1">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
+                            <img src="assets/img/team-member/robiul.jpeg" alt="Md. Robiul Hasan">
                         </div>
                         <div class="team-info">
-                            <h3>Sumaiya Binte Anwar</h3>
-                            <p>Program Manager - Research &amp; Advocacy</p>
+                            <h3>Md. Robiul Hasan</h3>
+                            <p>Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
 
                     <div class="team-card animate-scroll delay-2">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
+                            <img src="assets/img/team-member/flora.jpeg" alt="Flora Sumona Dewan">
                         </div>
                         <div class="team-info">
-                            <h3>Sheikh Nur Ataya Rabbi</h3>
-                            <p>Assistant Manager - Research and Advocacy</p>
+                            <h3>Flora Sumona Dewan</h3>
+                            <p>Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
 
                     <div class="team-card animate-scroll">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
+                            <img src="assets/img/team-member/shamima.jpeg" alt="MST. Shamima Akter">
                         </div>
                         <div class="team-info">
-                            <h3>Shohel Mahmud Nobel</h3>
-                            <p>Deputy Manager – Accounts and Administration</p>
+                            <h3>MST. Shamima Akter</h3>
+                            <p>Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
 
                     <div class="team-card animate-scroll delay-1">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
+                            <img src="assets/img/team-member/imrul.jpeg" alt="Md. Imrul Ahasan">
                         </div>
                         <div class="team-info">
-                            <h3>Mir Mehoraf Sharif</h3>
-                            <p>Assistant Manager - ICT &amp; Communication</p>
+                            <h3>Md. Imrul Ahasan</h3>
+                            <p>Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
 
                     <div class="team-card animate-scroll delay-2">
                         <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
+                            <img src="assets/img/team-member/ziaul.jpeg" alt="Md. Ziaul Ahshan">
                         </div>
                         <div class="team-info">
-                            <h3>Sohel Rana</h3>
-                            <p>Assistant Manager - HR and Organizational Affairs</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Tanje Un Jenat</h3>
-                            <p>Senior Officer - Research and Advocacy</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-1">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Al Imran</h3>
-                            <p>Senior Officer - Research and Campaign</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-2">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Ahmed Samira</h3>
-                            <p>Senior Research Officer - Environment and Public Health</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Md. Mir Ashaduzzaman</h3>
-                            <p>Senior Accounts &amp; Audit Officer</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-1">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Shanjia Shams</h3>
-                            <p>Research Officer - Gender &amp; Human Rights</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-2">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Shohanur Rahman</h3>
-                            <p>Research Officer - Biodiversity and Nature Based Solution</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>H. M. Rayhanul Islam</h3>
-                            <p>Research Officer</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-1">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Rai Dhar</h3>
-                            <p>Research Officer</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll delay-2">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Md. Shahadat Hossain</h3>
-                            <p>Research Officer</p>
-                            <a href="#">View Biography</a>
-                        </div>
-                    </div>
-
-                    <div class="team-card animate-scroll">
-                        <div class="team-avatar">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <div class="team-info">
-                            <h3>Md. Mashrup Hasan</h3>
-                            <p>Research Intern</p>
+                            <h3>Md. Ziaul Ahshan</h3>
+                            <p>Director</p>
                             <a href="#">View Biography</a>
                         </div>
                     </div>
