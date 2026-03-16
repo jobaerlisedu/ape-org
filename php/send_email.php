@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Recipient email address
-    $recipient = "info@apeorg.org";
+    $recipient = "info@ape-bd.org";
 
     // Email headers
     $email_headers = "From: $name <$email>";

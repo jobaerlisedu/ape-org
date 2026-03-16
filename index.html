@@ -57,7 +57,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/img/APE_LOGO.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/img/APE_FAV.svg">
 </head>
 
 <body>
@@ -76,20 +76,20 @@
                             <li><a href="our-team.html">Our Team</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="#research">Research <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="ongoing-research.html">Ongoing Research</a></li>
                             <li><a href="completed-research.html">Completed Research</a></li>
                         </ul>
-                    </li>
-                    <li class="dropdown">
+                    </li> -->
+                    <!-- <li class="dropdown">
                         <a href="#resources">Resources <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="ape-publications.html">APE Publications</a></li>
                             <li><a href="contributed-publications.html">Contributed Publications</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="dropdown">
                         <a href="#events">Event <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
@@ -97,7 +97,7 @@
                             <li><a href="upcoming-events.html">Upcoming Events</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="policy.html">Governance <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="organogram.html">Organogram</a></li>
@@ -109,10 +109,9 @@
                                     <li><a href="policy-gender.html">Gender Policy</a></li>
                                     <li><a href="policy-safeguarding.html">Safeguarding Policy</a></li>
                                 </ul>
-                            </li>
                             <li><a href="audit-report.html">Audit Reports</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="career.html">Career</a></li>
                     <li><a href="contact.html" class="btn btn-primary"
@@ -128,7 +127,18 @@
 
     <main>
         <section id="hero" class="hero">
-            <canvas id="hero-canvas"></canvas>
+            <div class="hero-slider">
+                <img src="assets/img/about-slide/DSC07961.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08012.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08025.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08034.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08035.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08083.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08230.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/DSC08443.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/IFT08886.JPG" alt="Community Action" loading="lazy">
+                <img src="assets/img/about-slide/IFT09156.JPG" alt="Community Action" loading="lazy">
+            </div>
             <div class="container hero-content">
                 <h1>Strengthening <span class="highlight">Inclusive Political Participation</span></h1>
                 <p>APE works for democratic participation, political accountability, and environmental & climate
@@ -180,34 +190,29 @@
 
         <section id="focus-areas" class="section stats">
             <div class="container">
-                <div class="section-title animate-scroll" style="color: var(--white); margin-bottom: 2rem;">
-                    <h2 style="color: var(--white);">WHAT WE DO</h2>
-                    <p>APE works through four strategic pillars to strengthen inclusive political systems.</p>
+                <div class="section-title animate-scroll" style="margin-bottom: 2rem;">
+                    <h2>What We Do</h2>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <i class="fa-solid fa-users-gear" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <h3>Leadership & Capacity Building</h3>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Equipping youth, women, and marginalised
-                            communities with political knowledge and leadership skills.</p>
+                        <i class="fa-solid fa-seedling" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h3>Climate Education</h3>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Empowering communities with knowledge and skills to understand and address climate change through comprehensive educational programs.</p>
                     </div>
                     <div class="stat-item">
-                        <i class="fa-solid fa-comments" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <h3>Policy Dialogue & Advocacy</h3>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Connecting citizens and decision-makers to
-                            influence policies and democratic reforms.</p>
+                        <i class="fa-solid fa-users" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h3>Youth Mobilization</h3>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Building a network of passionate young climate activists across Bangladesh to drive grassroots climate action and policy advocacy.</p>
                     </div>
                     <div class="stat-item">
-                        <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <h3>Research & Knowledge Generation</h3>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Producing policy research and evidence-based
-                            recommendations for accountable governance.</p>
+                        <i class="fa-solid fa-scale-balanced" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h3>Policy Advocacy</h3>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Influencing climate policy at local and national levels through research, dialogue, and strategic advocacy campaigns.</p>
                     </div>
                     <div class="stat-item">
-                        <i class="fa-solid fa-bullhorn" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <h3>Civic Mobilisation & Campaigns</h3>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Designing public awareness campaigns and
-                            advocacy actions to strengthen participation.</p>
+                        <i class="fa-solid fa-handshake-angle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h3>Community Resilience</h3>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Supporting vulnerable communities in building resilience against climate impacts through adaptation and mitigation initiatives.</p>
                     </div>
                 </div>
             </div>
@@ -221,17 +226,13 @@
                 </div>
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-img"
-                            style="background-color: #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-hand-holding-dollar"
-                                style="font-size: 3rem; color: var(--primary-color);"></i>
+                        <div class="card-img" style="height: 200px;">
+                            <img src="assets/img/event-photo-gallery/manifesto-talk-04/IFT08952.JPG" alt="Manifesto Talk Event" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         </div>
                         <div class="card-content">
-                            <h3>Understanding Community-Led Empowerment and Democratic Participation</h3>
-                            <p>Co-designing Climate-Responsive Finance for Climate-Vulnerable Communities in Bangladesh.
-                            </p>
-                            <a href="#" class="read-more" aria-label="Read more about Climate-Responsive Finance">Read
-                                More <i class="fa-solid fa-arrow-right"></i></a>
+                            <h3>Manifesto Talk: An Articulation of Political Parties' Commitment</h3>
+                            <p>A platform for discussing political mandates regarding climate change, environmental protection, and youth inclusion in Bangladesh.</p>
+                            <a href="assets/events-report/menifesto_talk.pdf" target="_blank" class="read-more" aria-label="Read Manifesto Talk Report">Read Report <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -261,47 +262,7 @@
                                 aria-label="Read more about Democratic participation resilience">Read More <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="card-img"
-                            style="background-color: #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-book-open" style="font-size: 3rem; color: var(--primary-color);"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>Understanding Community-Led Empowerment and Democratic Participation</h3>
-                            <p>Articulating CSOs position together towards COP 28 climate diplomacy.</p>
-                            <a href="#" class="read-more" aria-label="Read more about COP 28 climate diplomacy">Read
-                                More <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="card-img"
-                            style="background-color: #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-building" style="font-size: 3rem; color: var(--primary-color);"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>Understanding Community-Led Empowerment and Democratic Participation</h3>
-                            <p>Policy gaps and recommendations on climate resilient urban development in Bangladesh.</p>
-                            <a href="#" class="read-more"
-                                aria-label="Read more about Urban development case study 1">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="card-img"
-                            style="background-color: #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-building" style="font-size: 3rem; color: var(--primary-color);"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>Understanding Community-Led Empowerment and Democratic Participation</h3>
-                            <p>Policy gaps and recommendations on climate resilient urban development in Bangladesh.</p>
-                            <a href="#" class="read-more"
-                                aria-label="Read more about Urban development case study 2">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                </div>
+                    </article>                </div>
             </div>
         </section>
 
@@ -318,9 +279,10 @@
         <div class="container footer-grid">
             <div class="footer-col">
 
-                <p>House 1219, Flat A-2, Road 10, Avenue-10, Mirpur (12) DOHS, Dhaka-1216, Bangladesh.</p>
+                <p>953/1, East Shawrapara, Kafrul, Mirpur, Dhaka 1216, Bangladesh.</p>
                 <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-clock"></i> Sat - THU 9:00 AM -
                     5:00 PM</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-envelope"></i> <a href="mailto:info@ape-bd.org" style="color: inherit; text-decoration: none;">info@ape-bd.org</a></p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
